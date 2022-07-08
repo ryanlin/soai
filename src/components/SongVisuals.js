@@ -12,7 +12,7 @@ function SongVisuals(props) {
   const [visualColor, setVisualColor] = React.useState("red")
 
   React.useEffect( () => {
-    setVisualColor( visualColor === "red" ? "blue" : "red")
+    setVisualColor( visualColor === "blue" ? "red" : "blue")
   }, [props.songMood])
   
   return(
