@@ -1,6 +1,7 @@
 import React from 'react'
-
 import io from 'socket.io-client'
+
+const socket = io('http://localhost:8081');
 
 function SongUploader() {
   const [selectedFile, setSelectedFile] = React.useState(null);
@@ -13,8 +14,12 @@ function SongUploader() {
     console.log(e.target.files[0].name);
   }
 
-  const onClickSubmit = (e) => {
-    //empty
+  const onClickUpload = (e) => {
+    //unfinished
+    const data = new FormData();
+    data.append("file", selectedFile);
+
+    socket.emit('upload', data)
   }
 
   return(
@@ -25,7 +30,7 @@ function SongUploader() {
         onChange={changeHandler}
       />
       <button
-        onClick={onClickSubmit}
+        onClick={onClickUpload}
       >Upload</button>
     </div>
     
