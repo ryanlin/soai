@@ -45,7 +45,7 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData}
       // receive two parameter endpoint url, form data
     })
     .then(res => {
-      console.log(res.statusText)
+      console.log(res)
     })
   }
 
