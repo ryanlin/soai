@@ -12,6 +12,28 @@ code {
     monospace;
 }
 
+#visualizer {
+  width: 80%;
+  height: 300px;
+  margin: auto;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: space-around;
+
+}
+
+
+
+.innerBar {
+  background-color: white;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+}
+
 .red {
   background-color: red;
 }
