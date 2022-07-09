@@ -26,8 +26,6 @@ function SongVisuals({ songData }) {
       }}>SongVisuals</p>
       <div id='visualizer' className={visualColor}>
 
-
-
         <div className='innerBar' id='dot1'></div>
         <div className='innerBar' id='dot2'></div>
         <div className='innerBar' id='dot3'></div>
@@ -43,8 +41,6 @@ function SongVisuals({ songData }) {
         <div className='innerBar' id='dot13'></div>
         <div className='innerBar' id='dot14'></div>
         <div className='innerBar' id='dot15'></div>
-
-
 
       </div>
     </div>

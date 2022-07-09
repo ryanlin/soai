@@ -1,10 +1,12 @@
 import React from 'react'
+import axios from "axios";
+
 // import io from 'socket.io-client'
 
 // Socket stuff,experimental
 //const socket = io('http://localhost:8081');
 
-const API_BASE = "http://localhost:8080"
+const API_BASE = "http://localhost:8080/api"
 
 function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData} ) {
   // const [fileSelected, setFileSelected] = React.useState(false);
@@ -18,26 +20,35 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData}
 
   const onClickUpload = (e) => {
     //unfinished
-    console.log(songFile)
-    setWaitingResponse(true);
-    const song_res = fetch(API_BASE+"/api/upload", {
-      method: 'POST',
-      headers: {
-        // deliberately empty
-      },
-      body: songFile
-    }).then(
-      response => response.json()
-    ).then(
-      success => setSongData(success)
-    ).catch(
-      error=>console.log(error)
-    )
 
+    setWaitingResponse(true);
+
+    // Request with fetch
+    // const song_res = fetch(API_BASE+"/api/upload", {
+    //   method: 'POST',
+    //   headers: {
+    //     // deliberately empty
+    //   },
+    //   body: songFile
+    // }).then(
+    //   response => response.json()
+    // ).then(
+    //   success => setSongData(success)
+    // ).catch(
+    //   error=>console.log(error)
+    // )
+
+    // Request with axios
     setWaitingResponse(false)
-    // setSongData(song_res)
-    // const data = new FormData();
-    // data.append("file", songFile);
+    const data = new FormData();
+    data.append("file", songFile);
+    axios.post(API_BASE+"/upload", data, {
+      // receive two parameter endpoint url, form data
+    })
+    .then(res => {
+      console.log(res)
+    })
+
   }
 
   return(
