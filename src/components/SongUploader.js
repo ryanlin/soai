@@ -20,6 +20,7 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData}
 
   const onClickUpload = (e) => {
     //unfinished
+
     setWaitingResponse(true);
 
     // Request with fetch
@@ -47,6 +48,7 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData}
     .then(res => {
       console.log(res)
     })
+
   }
 
   return(
