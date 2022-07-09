@@ -13,18 +13,27 @@ function SongVisuals({ songData }) {
 
   React.useEffect(() => {
     setVisibility(songData ? "visible" : "hidden")
-    setVisualColor(visualColor === "blue" ? "red" : "blue")
+    setVisualColor(songData? "red" : "blue")
 
     console.log(songData);
   }, [songData])
 
   return (
     <div>
+      <button
+        onClick= {()=>setVisibility(visibility === "hidden"? "visible":"hidden")}
+      >{visibility}</button>
+
       <p style={{
         visibility: visibility,
         color: visualColor
       }}>SongVisuals</p>
-      <div id='visualizer' className={visualColor}>
+      <div
+        style={{
+          visibility: visibility,
+          color: visualColor
+        }}
+        id='visualizer' className={visualColor}>
 
         <div className='innerBar' id='dot1'></div>
         <div className='innerBar' id='dot2'></div>
