@@ -9,17 +9,23 @@ idea 2: change elements when mood changes
 
 function SongVisuals({ songData }) {
   const [visibility, setVisibility] = React.useState("hidden")
+  const [visualColor, setVisualColor] = React.useState("red")
 
   React.useEffect( () => {
     setVisibility(songData? "visible" : "hidden")
+    setVisualColor(visualColor === "blue" ? "red" : "blue")
+    
     console.log(songData);
   }, [songData])
   
   return(
     <div>
-      <p style={
-        {visibility: visibility}
-      }>SongVisuals</p>
+      <div className={visualColor}>
+        <p style={{
+          visibility: visibility,
+          color: visualColor
+        }}>SongVisuals</p>
+      </div>
     </div>
   )
 }
