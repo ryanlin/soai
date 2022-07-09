@@ -1,4 +1,3 @@
-import { within } from '@testing-library/react';
 import React from 'react'
 
 /*
@@ -8,22 +7,26 @@ change class when mood changes
 idea 2: change elements when mood changes
 */
 
-function SongVisuals(props) {
+function SongVisuals({ songData }) {
+  const [visibility, setVisibility] = React.useState("hidden")
   const [visualColor, setVisualColor] = React.useState("red")
 
-  React.useEffect(() => {
+  React.useEffect( () => {
+    setVisibility(songData? "visible" : "hidden")
     setVisualColor(visualColor === "blue" ? "red" : "blue")
-  }, [props.songMood])
-
-  return (
+    
+    console.log(songData);
+  }, [songData])
+  
+  return(
     <div>
       <div className={visualColor}>
-        <p style={
-          { color: visualColor }
-        }>SongVisuals</p>
+        <p style={{
+          visibility: visibility,
+          color: visualColor
+        }}>SongVisuals</p>
       </div>
     </div>
-
   )
 }
 

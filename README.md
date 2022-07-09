@@ -1,3 +1,18 @@
+# Quickstart
+
+To get required packages, run:
+`npm install`
+
+To start the server, run:
+`npm start`
+
+# To use with soai-server
+
+Install this extension if you use Chrome, turn on when running the client, off when done:
+https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related
+
+idk if u use another browser.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
