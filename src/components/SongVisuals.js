@@ -11,16 +11,19 @@ idea 2: change elements when mood changes
 function SongVisuals(props) {
   const [visualColor, setVisualColor] = React.useState("red")
 
-  React.useEffect( () => {
-    setVisualColor( visualColor === "blue" ? "red" : "blue")
+  React.useEffect(() => {
+    setVisualColor(visualColor === "blue" ? "red" : "blue")
   }, [props.songMood])
-  
-  return(
+
+  return (
     <div>
-      <p style={
-        {color: visualColor}
-      }>SongVisuals</p>
+      <div className={visualColor}>
+        <p style={
+          { color: visualColor }
+        }>SongVisuals</p>
+      </div>
     </div>
+
   )
 }
 
