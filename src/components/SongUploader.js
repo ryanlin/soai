@@ -1,25 +1,43 @@
 import React from 'react'
-import io from 'socket.io-client'
+// import io from 'socket.io-client'
 
-const socket = io('http://localhost:8081');
+// Socket stuff,experimental
+//const socket = io('http://localhost:8081');
 
-function SongUploader() {
-  const [selectedFile, setSelectedFile] = React.useState(null);
-  const [fileSelected, setFileSelected] = React.useState(false);
+const API_BASE = "http://localhost:8080"
+
+function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData} ) {
+  // const [fileSelected, setFileSelected] = React.useState(false);
   
   const changeHandler = (e) => {
-    setFileSelected(true);
-    setSelectedFile(e.target.files[0]);
+    // setFileSelected(true);
+    setSongFile(e.target.files[0]);
 
     console.log(e.target.files[0].name);
   }
 
   const onClickUpload = (e) => {
     //unfinished
-    const data = new FormData();
-    data.append("file", selectedFile);
+    console.log(songFile)
+    setWaitingResponse(true);
+    const song_res = fetch(API_BASE+"/api/upload", {
+      method: 'POST',
+      headers: {
+        // deliberately empty
+      },
+      body: songFile
+    }).then(
+      response => response.json()
+    ).then(
+      success => setSongData(success)
+    ).catch(
+      error=>console.log(error)
+    )
 
-    socket.emit('upload', data)
+    setWaitingResponse(false)
+    // setSongData(song_res)
+    // const data = new FormData();
+    // data.append("file", songFile);
   }
 
   return(

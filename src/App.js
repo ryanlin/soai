@@ -2,26 +2,51 @@ import React from 'react';
 import './App.css';
 import SongUploader from './components/SongUploader'
 import SongVisuals from './components/SongVisuals'
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:8081');
-socket.on("connect", () => {
-  console.log(socket.id);
-});
+// Socket.IO Stuff
+// const socket = io('http://localhost:8081');
+// socket.on("connect", () => {
+//   console.log(socket.id);
+// });
+
+const API_BASE = "http://localhost:8080"
 
 function App() {
   const [songFile, setSongFile] = React.useState(null);
-  const [songMood, setSongMood] = React.useState("Happy");
+  const [songData, setSongData] = React.useState(null);
+  const [waitingResponse, setWaitingResponse] = React.useState(false);
+  const [data, setData] = React.useState(null);
+
+  React.useEffect( () => {
+    const url = API_BASE + "/api"
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setData(data.version))
+      .catch(
+        error=>console.log(error)
+      )
+  }, []);
 
   return (
     <div className="App">
-      <SongUploader/>
-      <button
-        onClick={() => {
-          setSongMood(songMood === "Happy" ? "Sad" : "Happy")
-        }}>{songMood} </button>
+      <p>{!data? "Loading..." : data}</p>
+
+      <SongUploader
+        songFile={songFile}
+        setSongFile={setSongFile}
+        setWaitingResponse={setWaitingResponse}
+        setSongData={setSongData}
+      />
+      <p>{!songFile? " Upload a Song" : songFile.name}</p>
+      <p
+        style={{
+          visibility: waitingResponse? "visible" : "hidden"
+        }}        
+      >Loading...</p>
+
       <SongVisuals
-        songMood = {songMood}/>
+        songData = {songData}/>
     </div>
   );
 }
