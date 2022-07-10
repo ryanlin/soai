@@ -14,8 +14,7 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongID} )
   const changeHandler = (e) => {
     // setFileSelected(true);
     setSongFile(e.target.files[0]);
-
-    console.log(e.target.files[0].name);
+    console.log(e.target.files[0]);
   }
 
   const onClickUpload = (e) => {

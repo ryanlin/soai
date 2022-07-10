@@ -26,11 +26,11 @@ function SongVisuals({ songData, visibility }) {
 
   return (
     <div>
-      <p style={{
-        visibility: visibility,
-        color: visualColor
-      }}>SongVisuals</p>
-      <div id='container' className='container'>
+      <div 
+        style={{
+          visibility: visibility
+        }}
+      id='container' className='container'>
         
         <div id='column1' className='column'>
           <div className='tile' id='tile1'></div>
