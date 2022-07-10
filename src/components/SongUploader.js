@@ -51,7 +51,7 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongID} )
   }
 
   return(
-    <div>
+    <div className="song-uploader">
       <input
         type="file"
         name="file"

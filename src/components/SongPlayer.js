@@ -32,6 +32,7 @@ function SongPlayer({ songFile, songData, setVisibility }) {
     <div>
       {/* <audio autoPlay src={source} hidden/> */}
       <button
+        className="play-button"
         onClick={onClickHandler}
         style={{
           visibility: songData ? "visible" : "hidden" 

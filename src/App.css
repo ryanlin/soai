@@ -1,3 +1,7 @@
+* {
+  border: 1px solid white;
+}
+
 .App {
   background-color: black;
   text-align: center;
@@ -41,6 +45,14 @@
   color: white;
   float: left;
   margin-left: 20px;
+}
+
+.song-uploader {
+  float: left;
+}
+
+.play-button {
+  z-index: -1;
 }
 
 @keyframes App-logo-spin {
