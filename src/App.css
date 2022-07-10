@@ -90,6 +90,13 @@
   top: 50%;
 }
 
+.player-btn {
+  z-index: 97;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

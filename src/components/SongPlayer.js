@@ -29,13 +29,13 @@ function SongPlayer({ songFile, songData, setVisibility }) {
   }
 
   return (
-    <div>
+    <div className="player">
       {/* <audio autoPlay src={source} hidden/> */}
       <button
-        className="play-button btn btn-outline-light"
+        className="player-btn btn btn-outline-light"
         onClick={onClickHandler}
         style={{
-          visibility: songData ? "visible" : "hidden" 
+          //visibility: songData ? "visible" : "hidden" 
         }}
       > Play </button>
     </div>
