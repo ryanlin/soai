@@ -20,6 +20,10 @@ function SongVisuals({ songData }) {
 
   return (
     <div>
+      <button
+        onClick= {()=>setVisibility(visibility === "hidden"? "visible":"hidden")}
+      >{visibility}</button>
+
       <p style={{
         visibility: visibility,
         color: visualColor
