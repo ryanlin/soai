@@ -9,9 +9,10 @@ idea 2: change elements when mood changes
 
 function SongPlayer({ songFile, songData, setVisibility }) {
   const [audio, setAudio] = React.useState(null)
+  const [buttonVisibility, setButtonVisibility] = React.useState("hidden")
 
   React.useEffect( () => {
-    if (!songFile) {
+    if (!songFile || !songData) {
       return;
     }
     var URL = window.URL || window.webkitURL;
@@ -19,10 +20,13 @@ function SongPlayer({ songFile, songData, setVisibility }) {
     var audio = new Audio(src)
 
     setAudio(audio)
-  }, [songFile]);
+    setButtonVisibility("visible")
+  }, [songFile, songData]);
 
   const onClickHandler = (e) => {
     if (audio) {
+      
+      setButtonVisibility("hidden")
       audio.play()
       setVisibility(true)
     }
@@ -35,7 +39,7 @@ function SongPlayer({ songFile, songData, setVisibility }) {
         className="player-btn btn btn-outline-light"
         onClick={onClickHandler}
         style={{
-          visibility: songData ? "visible" : "hidden" 
+          visibility: buttonVisibility
         }}
       > Play </button>
     </div>

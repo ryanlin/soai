@@ -32,7 +32,7 @@ function SongVisuals({ songData, visibility }) {
       const songBpm = songData.bpmPrediction.value;
       const songEnergyLevel = songData.energyLevel;
       const songMovement = songData.movementTags[0];
-      const songMood = songData.moodTags[0];
+      const songMood = songData.moodTags[0] in moodDict? songData.moodTags[0]: 'sexy';
 
       console.log(songBpm);
       console.log(songEnergyLevel);
