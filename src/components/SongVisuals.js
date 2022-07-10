@@ -7,50 +7,47 @@ change class when mood changes
 idea 2: change elements when mood changes
 */
 
-function SongVisuals({ songData }) {
-  const [visibility, setVisibility] = React.useState("hidden")
+function SongVisuals({ songData, visibility }) {
   const [visualColor, setVisualColor] = React.useState("red")
 
   React.useEffect(() => {
-    setVisibility(songData ? "visible" : "hidden")
     setVisualColor(songData? "red" : "blue")
-
     console.log(songData);
+
+    if(songData) {  
+      var minim = 2 * (60 / songData.bpmPrediction.value)
+      console.log(minim);
+    
+      const tile = document.querySelector('.tile');
+      tile.style.setProperty('--bpm-into-minim', minim +'s');
+    }
+
   }, [songData])
 
   return (
     <div>
-      <button
-        onClick= {()=>setVisibility(visibility === "hidden"? "visible":"hidden")}
-      >{visibility}</button>
-
       <p style={{
         visibility: visibility,
         color: visualColor
       }}>SongVisuals</p>
-      <div
-        style={{
-          visibility: visibility,
-          color: visualColor
-        }}
-        id='visualizer' className={visualColor}>
-
-        <div className='innerBar' id='dot1'></div>
-        <div className='innerBar' id='dot2'></div>
-        <div className='innerBar' id='dot3'></div>
-        <div className='innerBar' id='dot4'></div>
-        <div className='innerBar' id='dot5'></div>
-        <div className='innerBar' id='dot6'></div>
-        <div className='innerBar' id='dot7'></div>
-        <div className='innerBar' id='dot8'></div>
-        <div className='innerBar' id='dot9'></div>
-        <div className='innerBar' id='dot10'></div>
-        <div className='innerBar' id='dot11'></div>
-        <div className='innerBar' id='dot12'></div>
-        <div className='innerBar' id='dot13'></div>
-        <div className='innerBar' id='dot14'></div>
-        <div className='innerBar' id='dot15'></div>
-
+      <div id='container' className='container'>
+        
+        <div id='column1' className='column'>
+          <div className='tile' id='tile1'></div>
+          <div className='tile' id='tile2'></div>
+          <div className='tile' id='tile3'></div>
+        </div>
+        <div id='column2' className='column'>
+          <div className='tile' id='tile4'></div>
+          <div className='tile' id='tile5'></div>
+          <div className='tile' id='tile6'></div>
+        </div>
+        <div id='column3' className='column'>
+          <div className='tile' id='tile7'></div>
+          <div className='tile' id='tile8'></div>
+          <div className='tile' id='tile9'></div>
+        </div>
+        
       </div>
     </div>
   )
