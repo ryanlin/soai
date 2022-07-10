@@ -35,10 +35,10 @@ function SongVisuals({ songData, visibility }) {
       console.log(minim);
       console.log(rate)
     
-      const tile = document.querySelector('.tile');
+      const tiles = document.querySelectorAll('.tile');
       const container = document.querySelector('.container');
 
-      tile.style.setProperty('--bpm-into-minim', minim +'s');
+      tiles.forEach(t => t.style.setProperty('--bpm-into-minim', minim +'s'));
       container.style.setProperty('--flow-rate', rate +'s');
     }
 

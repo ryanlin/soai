@@ -70,6 +70,15 @@ code {
   }
 }
 
+@keyframes tile-flicker {
+  from {
+    filter: opacity(50%);
+  }
+  to {
+    filter: opacity(5%);
+  }
+}
+
 @keyframes bg-animation {
   0% {
     filter: hue-rotate(0deg);
