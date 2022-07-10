@@ -7,14 +7,11 @@ change class when mood changes
 idea 2: change elements when mood changes
 */
 
-function SongVisuals({ songData }) {
-  const [visibility, setVisibility] = React.useState("hidden")
+function SongVisuals({ songData, visibility }) {
   const [visualColor, setVisualColor] = React.useState("red")
 
   React.useEffect(() => {
-    setVisibility(songData ? "visible" : "hidden")
-    setVisualColor(visualColor === "black" ? "red" : "black")
-
+    setVisualColor(songData? "red" : "blue")
     console.log(songData);
 
     if(songData) {  
@@ -29,10 +26,6 @@ function SongVisuals({ songData }) {
 
   return (
     <div>
-      <button
-        onClick= {()=>setVisibility(visibility === "hidden"? "visible":"hidden")}
-      >{visibility}</button>
-
       <p style={{
         visibility: visibility,
         color: visualColor

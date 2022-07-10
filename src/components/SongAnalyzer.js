@@ -14,7 +14,7 @@ const SongAnalyzer = ({songID, setSongData}) => {
     })
     .then(res => {
       const song_data = res.data.data.libraryTrack.audioAnalysisV6.result
-      console.log(song_data);
+      //console.log(song_data);
       setSongData(song_data)
     })
 

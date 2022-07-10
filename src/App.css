@@ -1,5 +1,7 @@
 .App {
+  background-color: black;
   text-align: center;
+  color: white;
 }
 
 .App-logo {
@@ -26,6 +28,19 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.header {
+  border: 1px solid white;
+  width: 100%;
+  padding: 10px 0px 10px 10px;
+}
+
+.header-title {
+  /*border: 1px solid white;*/
+  color: white;
+  float: left;
+  margin-left: 20px;
 }
 
 @keyframes App-logo-spin {

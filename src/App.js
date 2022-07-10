@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
+
+import Header from './components/Header'
 import SongUploader from './components/SongUploader'
 import SongAnalyzer from './components/SongAnalyzer'
 import SongVisuals from './components/SongVisuals'
+import SongPlayer from './components/SongPlayer'
 // import { io } from 'socket.io-client';
 
 // Socket.IO Stuff
@@ -11,28 +14,16 @@ import SongVisuals from './components/SongVisuals'
 //   console.log(socket.id);
 // });
 
-const API_BASE = "http://localhost:8080"
-
 function App() {
   const [songFile, setSongFile] = React.useState(null);
   const [songData, setSongData] = React.useState(null);
   const [waitingResponse, setWaitingResponse] = React.useState(false);
+  const [visibility, setVisibility] = React.useState("hidden")
   const [songID, setSongID] = React.useState(null);
-  const [data, setData] = React.useState(null);
-
-  React.useEffect( () => {
-    const url = API_BASE + "/api"
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setData(data.version))
-      .catch(
-        error=>console.log(error)
-      )
-  }, []);
 
   return (
     <div className="App">
-      <p>{!data? "Loading..." : data}</p>
+      <Header />
 
       <SongUploader
         songFile={songFile}
@@ -54,7 +45,14 @@ function App() {
       >Loading...</p>
 
       <SongVisuals
+        visibility = {visibility}
         songData = {songData}/>
+
+      <SongPlayer
+        songFile={songFile}
+        songData={songData}
+        setVisibility={setVisibility}/>
+        
     </div>
   );
 }
