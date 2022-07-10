@@ -7,18 +7,14 @@ change class when mood changes
 idea 2: change elements when mood changes
 */
 
-<<<<<<< HEAD
 var energyDict = {
   'low': 8,
   'medium': 4,
   'high': 2
 }
-
+ 
 function SongVisuals({ songData }) {
   const [visibility, setVisibility] = React.useState("hidden")
-=======
-function SongVisuals({ songData, visibility }) {
->>>>>>> c15b78cddb408a3b9e4a5f870de97c0981b66166
   const [visualColor, setVisualColor] = React.useState("red")
 
   React.useEffect(() => {
