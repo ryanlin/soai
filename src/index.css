@@ -1,5 +1,6 @@
 :root {
   --bpm-into-minim: 2s; /* 2s minim length = 60BPM */
+  --flow-rate: 2s;
 }
 
 body {
@@ -28,7 +29,7 @@ code {
   justify-content: space-around;
 
   background: radial-gradient(ellipse at center,  #1e5799 0%,#7db9e8 100%);
-  animation: bg-animation 8s infinite;
+  animation: bg-animation var(--flow-rate) infinite;
 
 }
 

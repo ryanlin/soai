@@ -7,6 +7,12 @@ change class when mood changes
 idea 2: change elements when mood changes
 */
 
+var energyDict = {
+  'low': 8,
+  'medium': 4,
+  'high': 2
+}
+
 function SongVisuals({ songData }) {
   const [visibility, setVisibility] = React.useState("hidden")
   const [visualColor, setVisualColor] = React.useState("red")
@@ -17,12 +23,26 @@ function SongVisuals({ songData }) {
 
     console.log(songData);
 
-    if(songData) {  
-      var minim = 2 * (60 / songData.bpmPrediction.value)
+    if (songData) {  
+      const songBpm = songData.bpmPrediction.value;
+      const songEnergyLevel = songData.energyLevel;
+      const songMovement = songData.movementTags[0];
+
+      console.log(songBpm);
+      console.log(songEnergyLevel);
+      console.log(songMovement);
+
+      var minim = 2 * (60 / songBpm);
+      var rate = energyDict[songEnergyLevel];
+
       console.log(minim);
+      console.log(rate)
     
       const tile = document.querySelector('.tile');
+      const container = document.querySelector('.container');
+
       tile.style.setProperty('--bpm-into-minim', minim +'s');
+      container.style.setProperty('--flow-rate', rate +'s');
     }
 
   }, [songData])
