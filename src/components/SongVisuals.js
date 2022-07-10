@@ -12,10 +12,9 @@ var energyDict = {
   'medium': 4,
   'high': 2
 }
- 
-function SongVisuals({ songData }) {
-  const [visibility, setVisibility] = React.useState("hidden");
-  const [visualColor, setVisualColor] = React.useState("red");
+
+function SongVisuals({ songData, visibility }) {
+  const [visualColor, setVisualColor] = React.useState("red")
 
   React.useEffect(() => {
     setVisualColor(songData? "red" : "blue")
