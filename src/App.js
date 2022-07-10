@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import SongUploader from './components/SongUploader'
+import SongAnalyzer from './components/SongAnalyzer'
 import SongVisuals from './components/SongVisuals'
 // import { io } from 'socket.io-client';
 
@@ -16,6 +17,7 @@ function App() {
   const [songFile, setSongFile] = React.useState(null);
   const [songData, setSongData] = React.useState(null);
   const [waitingResponse, setWaitingResponse] = React.useState(false);
+  const [songID, setSongID] = React.useState(null);
   const [data, setData] = React.useState(null);
 
   React.useEffect( () => {
@@ -37,8 +39,14 @@ function App() {
         setSongFile={setSongFile}
         setWaitingResponse={setWaitingResponse}
         setSongData={setSongData}
+        setSongID={setSongID}
       />
-      <p>{!songFile? " Upload a Song" : songFile.name}</p>
+
+      <SongAnalyzer
+        songID={songID}
+        setSongData={setSongData}
+      />
+      
       <p
         style={{
           visibility: waitingResponse? "visible" : "hidden"
