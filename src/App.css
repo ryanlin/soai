@@ -1,5 +1,5 @@
 * {
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 
 .App {
@@ -37,7 +37,7 @@
 .header {
   position: relative;
   z-index: 100;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   padding: 10px 0px 10px 10px;
 }
@@ -45,7 +45,7 @@
 .header-title {
   position: relative;
   z-index: 100;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   color: white;
   float: left;
   margin-left: 20px;
@@ -53,9 +53,9 @@
 
 /* SongUploader */
 .song-uploader {
-  border: 1px solid green;
-  /* z-index: 98;
-  position: absolute;
+  /* border: 1px solid green; */
+  z-index: 98;
+  /* position: absolute;
   left: 45%;
   top: 50%; */
 }

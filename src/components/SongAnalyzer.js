@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const API_BASE = "http://localhost:8080/api"
 
-const SongAnalyzer = ({songID, setSongData}) => {
+const SongAnalyzer = ({songID, songData, setSongData}) => {
 
   const onClickHandler = (e) => {
     const data = { id: songID }
@@ -23,6 +23,9 @@ const SongAnalyzer = ({songID, setSongData}) => {
   return(
     <div
       className="song-analyzer"
+      style={{
+        visibility: songData ? "hidden":"visible"
+      }}
     >
       <button
       className="analyzer-btn btn btn-outline-light"

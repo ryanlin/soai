@@ -35,7 +35,7 @@ function SongPlayer({ songFile, songData, setVisibility }) {
         className="player-btn btn btn-outline-light"
         onClick={onClickHandler}
         style={{
-          //visibility: songData ? "visible" : "hidden" 
+          visibility: songData ? "visible" : "hidden" 
         }}
       > Play </button>
     </div>

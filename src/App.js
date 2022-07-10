@@ -36,6 +36,7 @@ function App() {
 
       <SongAnalyzer
         songID={songID}
+        songData={songData}
         setSongData={setSongData}
       />
       
