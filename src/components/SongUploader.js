@@ -8,33 +8,17 @@ import axios from "axios";
 
 const API_BASE = "http://localhost:8080/api"
 
-function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongID} ) {
-  // const [fileSelected, setFileSelected] = React.useState(false);
+function SongUploader( { songFile, songID, setSongFile, setWaitingResponse, setSongID} ) {
+  const [isFileSelected, setIsFileSelected] = React.useState(false);
   
   const changeHandler = (e) => {
-    // setFileSelected(true);
+    setIsFileSelected(true);
     setSongFile(e.target.files[0]);
     console.log(e.target.files[0]);
   }
 
   const onClickUpload = (e) => {
-    //unfinished
     setWaitingResponse(true);
-
-    // Request with fetch
-    // const song_res = fetch(API_BASE+"/api/upload", {
-    //   method: 'POST',
-    //   headers: {
-    //     // deliberately empty
-    //   },
-    //   body: songFile
-    // }).then(
-    //   response => response.json()
-    // ).then(
-    //   success => setSongData(success)
-    // ).catch(
-    //   error=>console.log(error)
-    // )
 
     // Request with axios
     setWaitingResponse(false)
@@ -51,18 +35,27 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongID} )
   }
 
   return(
-    <div className="song-uploader">
+    <div
+      className="song-uploader"
+      style={{
+        visibility: songID? "hidden" : "visible"
+      }}
+    >
       <input
+        className="uploader-form"
         type="file"
         name="file"
         onChange={changeHandler}
       />
       <button
+        id="upload-button-id"
+        className="uploader-btn btn btn-outline-light"
+        style={{
+          visibility: songFile && !songID ? "visible" : "hidden"
+        }}
         onClick={onClickUpload}
-      >Upload</button>
-    </div>
-    
-
+    >Upload</button>
+   </div>
   )
 }
 

@@ -21,10 +21,15 @@ const SongAnalyzer = ({songID, setSongData}) => {
   }
 
   return(
-    <button
+    <div
+      className="song-analyzer"
+    >
+      <button
+      className="analyzer-btn btn btn-outline-light"
       onClick={onClickHandler}
       style={{ visibility: songID ? "visible":"hidden"}}
       >Analyze</button>
+    </div>
   )
 }
 

@@ -35,24 +35,59 @@
 }
 
 .header {
-  border: 1px solid white;
+  position: relative;
+  z-index: 100;
+  border: 1px solid red;
   width: 100%;
   padding: 10px 0px 10px 10px;
 }
 
 .header-title {
-  /*border: 1px solid white;*/
+  position: relative;
+  z-index: 100;
+  border: 1px solid white;
   color: white;
   float: left;
   margin-left: 20px;
 }
 
+/* SongUploader */
 .song-uploader {
-  float: left;
+  border: 1px solid green;
+  /* z-index: 98;
+  position: absolute;
+  left: 45%;
+  top: 50%; */
 }
 
-.play-button {
-  z-index: -1;
+.uploader-form {
+  z-index: 90;
+  position: absolute;
+  left: 36%;
+  top: 35%;
+}
+
+.uploader-btn {
+  z-index: 99;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+}
+
+/* SongAnalyzer */
+.song-analyzer {
+  z-index: 90;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  /* will-change: text-shadow; */
+}
+
+.song-analyzer-button {
+  z-index: 90;
+  position: absolute;
+  left: 45%;
+  top: 50%;
 }
 
 @keyframes App-logo-spin {

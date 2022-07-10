@@ -50,19 +50,20 @@ function SongVisuals({ songData, visibility }) {
         style={{
           visibility: visibility
         }}
-      id='container' className='container'>
-        
-        <div id='column1' className='column'>
+        id='visual-container-id'
+        className='visual-container'
+      >        
+        <div id='column1' className='visual-column'>
           <div className='tile' id='tile1'></div>
           <div className='tile' id='tile2'></div>
           <div className='tile' id='tile3'></div>
         </div>
-        <div id='column2' className='column'>
+        <div id='column2' className='visual-column'>
           <div className='tile' id='tile4'></div>
           <div className='tile' id='tile5'></div>
           <div className='tile' id='tile6'></div>
         </div>
-        <div id='column3' className='column'>
+        <div id='column3' className='visual-column'>
           <div className='tile' id='tile7'></div>
           <div className='tile' id='tile8'></div>
           <div className='tile' id='tile9'></div>

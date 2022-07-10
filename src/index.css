@@ -17,7 +17,7 @@ code {
     monospace;
 }
 
-.container {
+.visual-container {
   width: 80%;
   height: 500px;
   margin: auto;
@@ -33,7 +33,7 @@ code {
 
 }
 
-.column {
+.visual-column {
   width: 90%;
   height: 90%;
   margin: auto;
