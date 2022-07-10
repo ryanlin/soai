@@ -16,6 +16,15 @@ function SongVisuals({ songData }) {
     setVisualColor(visualColor === "black" ? "red" : "black")
 
     console.log(songData);
+
+    if(songData) {  
+      var minim = 2 * (60 / songData.bpmPrediction.value)
+      console.log(minim);
+    
+      const tile = document.querySelector('.tile');
+      tile.style.setProperty('--bpm-into-minim', minim +'s');
+    }
+
   }, [songData])
 
   return (
@@ -28,7 +37,7 @@ function SongVisuals({ songData }) {
         visibility: visibility,
         color: visualColor
       }}>SongVisuals</p>
-      <div id='container' className={visualColor}>
+      <div id='container' className='container'>
         
         <div id='column1' className='column'>
           <div className='tile' id='tile1'></div>

@@ -1,3 +1,7 @@
+:root {
+  --bpm-into-minim: 2s; /* 2s minim length = 60BPM */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,7 +16,7 @@ code {
     monospace;
 }
 
-#container {
+.container {
   width: 80%;
   height: 500px;
   margin: auto;
@@ -50,7 +54,8 @@ code {
   border-radius: 29px;
   padding: 11px 19px;
   margin: 0 40px;
-  animation: tile-animation 3s linear infinite;
+
+  animation: tile-animation var(--bpm-into-minim) linear infinite;
 
   animation-delay: 0.3s
 }
@@ -76,15 +81,6 @@ code {
   100% {
     filter: hue-rotate(0deg);
   }
-}
-
-
-.red {
-  background-color: red;
-}
-
-.black {
-  background-color: black;
 }
 
 
