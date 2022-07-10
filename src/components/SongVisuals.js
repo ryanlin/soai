@@ -13,7 +13,7 @@ function SongVisuals({ songData }) {
 
   React.useEffect(() => {
     setVisibility(songData ? "visible" : "hidden")
-    setVisualColor(visualColor === "blue" ? "red" : "blue")
+    setVisualColor(visualColor === "black" ? "red" : "black")
 
     console.log(songData);
   }, [songData])
@@ -31,17 +31,6 @@ function SongVisuals({ songData }) {
         <div className='innerBar' id='dot3'></div>
         <div className='innerBar' id='dot4'></div>
         <div className='innerBar' id='dot5'></div>
-        <div className='innerBar' id='dot6'></div>
-        <div className='innerBar' id='dot7'></div>
-        <div className='innerBar' id='dot8'></div>
-        <div className='innerBar' id='dot9'></div>
-        <div className='innerBar' id='dot10'></div>
-        <div className='innerBar' id='dot11'></div>
-        <div className='innerBar' id='dot12'></div>
-        <div className='innerBar' id='dot13'></div>
-        <div className='innerBar' id='dot14'></div>
-        <div className='innerBar' id='dot15'></div>
-
       </div>
     </div>
   )
