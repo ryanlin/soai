@@ -1,6 +1,6 @@
 :root {
   --bpm-into-minim: 2s; /* 2s minim length = 60BPM */
-  --flow-rate: 2s;
+  --flow-rate: 4s;
 }
 
 body {
