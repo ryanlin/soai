@@ -24,13 +24,24 @@ function SongVisuals({ songData }) {
         visibility: visibility,
         color: visualColor
       }}>SongVisuals</p>
-      <div id='visualizer' className={visualColor}>
-
-        <div className='innerBar' id='dot1'></div>
-        <div className='innerBar' id='dot2'></div>
-        <div className='innerBar' id='dot3'></div>
-        <div className='innerBar' id='dot4'></div>
-        <div className='innerBar' id='dot5'></div>
+      <div id='container' className={visualColor}>
+        
+        <div id='column1' className='column'>
+          <div className='tile' id='tile1'></div>
+          <div className='tile' id='tile2'></div>
+          <div className='tile' id='tile3'></div>
+        </div>
+        <div id='column2' className='column'>
+          <div className='tile' id='tile4'></div>
+          <div className='tile' id='tile5'></div>
+          <div className='tile' id='tile6'></div>
+        </div>
+        <div id='column3' className='column'>
+          <div className='tile' id='tile7'></div>
+          <div className='tile' id='tile8'></div>
+          <div className='tile' id='tile9'></div>
+        </div>
+        
       </div>
     </div>
   )
