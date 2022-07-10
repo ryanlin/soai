@@ -8,7 +8,7 @@ import axios from "axios";
 
 const API_BASE = "http://localhost:8080/api"
 
-function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData} ) {
+function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongID} ) {
   // const [fileSelected, setFileSelected] = React.useState(false);
   
   const changeHandler = (e) => {
@@ -45,7 +45,9 @@ function SongUploader( { songFile, setSongFile, setWaitingResponse, setSongData}
       // receive two parameter endpoint url, form data
     })
     .then(res => {
-      console.log(res)
+      const song_id = res.data.createdLibraryTrack.id
+      console.log(song_id)
+      setSongID(song_id)
     })
   }
 
