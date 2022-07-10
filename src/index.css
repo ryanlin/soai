@@ -1,6 +1,8 @@
 :root {
   --bpm-into-minim: 2s; /* 2s minim length = 60BPM */
   --flow-rate: 4s;
+  --bg-start: #000;
+  --bg-end: #fff;
 }
 
 body {
@@ -17,7 +19,7 @@ code {
     monospace;
 }
 
-.container {
+.visual-container {
   width: 80%;
   height: 500px;
   margin: auto;
@@ -28,12 +30,12 @@ code {
 
   justify-content: space-around;
 
-  background: radial-gradient(ellipse at center,  #1e5799 0%,#7db9e8 100%);
+  background: radial-gradient(ellipse at center, var(--bg-start) 0%, var(--bg-end) 100%);
   animation: bg-animation var(--flow-rate) infinite;
 
 }
 
-.column {
+.visual-column {
   width: 90%;
   height: 90%;
   margin: auto;
